@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>XANKONGCOCAKING OS — Creator Edition</title>
+  <title>XANKONG Control — Live</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -21,104 +21,114 @@
       <div class="flex items-center gap-3 px-3 py-2 mb-4">
         <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center font-bold text-sm">Ω</div>
         <div>
-          <div class="font-bold text-sm">XANKONG OS</div>
-          <div class="text-[10px] text-gray-500">Creator Edition</div>
+          <div class="font-bold text-sm">XANKONG Control</div>
+          <div class="text-[10px] text-gray-500">Live · Stripe · Markets</div>
         </div>
       </div>
       <button onclick="show('terminal')" id="nav-terminal" class="nav-btn flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-cyan-400 bg-cyan-500/10 text-left">Терминал</button>
-      <button onclick="show('messenger')" id="nav-messenger" class="nav-btn flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-gray-400 hover:bg-white/5 text-left">Мессенджер</button>
-      <button onclick="show('wallet')" id="nav-wallet" class="nav-btn flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-gray-400 hover:bg-white/5 text-left">Кошельки</button>
-      <button onclick="show('site')" id="nav-site" class="nav-btn flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-gray-400 hover:bg-white/5 text-left">Site Builder</button>
-      <button onclick="show('privacy')" id="nav-privacy" class="nav-btn flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-gray-400 hover:bg-white/5 text-left">Приватность</button>
+      <button onclick="show('markets')" id="nav-markets" class="nav-btn flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-gray-400 hover:bg-white/5 text-left">Markets</button>
+      <button onclick="show('site')" id="nav-site" class="nav-btn flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-gray-400 hover:bg-white/5 text-left">Studio</button>
+      <button onclick="show('pricing')" id="nav-pricing" class="nav-btn flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-gray-400 hover:bg-white/5 text-left">Pricing</button>
       <button onclick="show('settings')" id="nav-settings" class="nav-btn flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-gray-400 hover:bg-white/5 text-left">Настройки</button>
-      <div class="mt-auto text-[11px] text-gray-600 px-3">v1.0.0-creator<br/>Lifetime Free</div>
+      <div class="mt-auto text-[11px] text-gray-600 px-3">v2.0.0-control<br/>Pro $29/mo live</div>
     </aside>
     <div class="flex-1 flex flex-col">
       <header class="h-14 border-b border-gray-800 flex items-center justify-between px-6 bg-gray-900/80">
         <span class="text-sm font-medium" id="section-title">Терминал</span>
         <div class="flex gap-2">
-          <span class="text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-semibold">Creator Mode</span>
-          <span id="mon-badge" class="text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-semibold">Monetization OFF</span>
+          <span class="text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-semibold">LIVE</span>
+          <span id="pro-badge" class="text-[11px] px-2 py-0.5 rounded-full bg-gray-700 text-gray-300 border border-gray-600 font-semibold">Free</span>
         </div>
       </header>
       <div class="flex-1 overflow-y-auto p-6">
         <div id="sec-terminal" class="bg-gray-900 border border-gray-800 rounded-xl p-5">
           <h2 class="font-semibold mb-1">AI Терминал</h2>
-          <p class="text-sm text-gray-400 mb-4">Только allowlisted-команды. Никакого shell или deploy.</p>
-          <div class="bg-black/60 border border-gray-800 rounded-lg h-80 flex flex-col overflow-hidden">
+          <p class="text-sm text-gray-400 mb-4">Allowlisted commands only.</p>
+          <div class="bg-black/60 border border-gray-800 rounded-lg h-72 flex flex-col overflow-hidden">
             <div id="term-out" class="flex-1 overflow-y-auto p-3 mono text-xs leading-relaxed"></div>
             <form onsubmit="runCmd(event)" class="flex border-t border-gray-800">
-              <input id="term-in" class="flex-1 bg-transparent border-0 px-3 py-3 mono text-xs outline-none" placeholder="help, status, wallet, monetization, site, privacy" />
+              <input id="term-in" class="flex-1 bg-transparent border-0 px-3 py-3 mono text-xs outline-none" placeholder="help, status, markets, buy, pro" />
               <button type="submit" class="px-4 text-cyan-400 text-xs font-semibold">Enter</button>
             </form>
           </div>
         </div>
-        <div id="sec-messenger" class="hidden bg-gray-900 border border-gray-800 rounded-xl p-5">
-          <h2 class="font-semibold mb-1">Мессенджер</h2>
-          <p class="text-sm text-gray-400 mb-4">E2EE. Ключи только на устройстве.</p>
-          <div class="text-center text-gray-500 text-sm py-10">Комнаты и realtime tickets — R1 scaffold.</div>
-        </div>
-        <div id="sec-wallet" class="hidden bg-gray-900 border border-gray-800 rounded-xl p-5">
-          <h2 class="font-semibold mb-1">Кошельки</h2>
-          <p class="text-sm text-gray-400 mb-4">Non-custodial TON + Solana.</p>
-          <div id="wallet-box" class="flex items-center gap-3 p-4 bg-emerald-500/5 border border-emerald-500/25 rounded-xl">
-            <div class="flex-1"><div class="font-semibold text-sm">Подключить кошелёк</div><div class="text-[11px] text-gray-500">Ключи никогда не покидают устройство</div></div>
-            <button onclick="connectWallet()" class="bg-emerald-400 text-black px-4 py-2 rounded-lg text-xs font-bold">Connect</button>
+        <div id="sec-markets" class="hidden bg-gray-900 border border-gray-800 rounded-xl p-5">
+          <div class="flex items-center justify-between mb-4">
+            <div><h2 class="font-semibold">Live Markets</h2><p class="text-sm text-gray-400">Coinbase public API · 15s</p></div>
+            <button onclick="refreshMarkets()" class="bg-white/5 border border-gray-700 px-3 py-1.5 rounded-lg text-xs">Refresh</button>
           </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="market-cards"></div>
+          <p class="mono text-[11px] text-gray-500 mt-3" id="market-ts">—</p>
         </div>
         <div id="sec-site" class="hidden bg-gray-900 border border-gray-800 rounded-xl p-5">
-          <h2 class="font-semibold mb-1">AI Site Builder</h2>
-          <p class="text-sm text-gray-400 mb-4">Создаёт только черновик.</p>
-          <textarea id="site-prompt" rows="3" class="w-full bg-white/5 border border-gray-700 rounded-lg p-3 text-sm outline-none focus:border-cyan-500" placeholder="Опиши сайт"></textarea>
-          <button onclick="createDraft()" class="mt-3 w-full py-2.5 rounded-lg font-semibold text-sm text-white bg-gradient-to-r from-cyan-500 to-violet-500">Создать черновик</button>
-          <div id="draft-box" class="hidden mt-4 p-4 bg-cyan-500/5 border border-cyan-500/20 rounded-xl text-sm"></div>
+          <h2 class="font-semibold mb-1">Draft Studio</h2>
+          <p class="text-sm text-gray-400 mb-4">Proposal-only. Free: 3/mo · Pro: unlimited (local unlock).</p>
+          <textarea id="site-prompt" rows="3" class="w-full bg-white/5 border border-gray-700 rounded-lg p-3 text-sm outline-none focus:border-cyan-500" placeholder="Опиши сайт / swarm / security plan"></textarea>
+          <button onclick="createDraft()" class="mt-3 w-full py-2.5 rounded-lg font-semibold text-sm text-white bg-gradient-to-r from-cyan-500 to-violet-500">Generate draft</button>
+          <div id="draft-box" class="hidden mt-4 p-4 bg-cyan-500/5 border border-cyan-500/20 rounded-xl text-sm whitespace-pre-wrap"></div>
+          <p class="text-[11px] text-gray-500 mt-2">Quota left: <span id="quota">3</span></p>
         </div>
-        <div id="sec-privacy" class="hidden bg-gray-900 border border-gray-800 rounded-xl p-5">
-          <h2 class="font-semibold mb-1">Приватность</h2>
-          <p class="text-sm text-gray-400 mb-4">Confidential Transfers · Helius Rings · ZK Compression</p>
-          <div class="grid grid-cols-2 gap-3">
-            <div class="p-3 bg-white/5 border border-gray-800 rounded-lg"><div class="text-xs font-semibold">E2EE</div><div class="text-[11px] text-gray-500">Ключи на клиенте</div></div>
-            <div class="p-3 bg-white/5 border border-gray-800 rounded-lg"><div class="text-xs font-semibold">Confidential</div><div class="text-[11px] text-gray-500">Скрытые суммы</div></div>
-            <div class="p-3 bg-white/5 border border-gray-800 rounded-lg"><div class="text-xs font-semibold">Rings</div><div class="text-[11px] text-gray-500">Анонимность</div></div>
-            <div class="p-3 bg-white/5 border border-gray-800 rounded-lg"><div class="text-xs font-semibold">No-log</div><div class="text-[11px] text-gray-500">Нет plaintext</div></div>
+        <div id="sec-pricing" class="hidden bg-gray-900 border border-gray-800 rounded-xl p-5">
+          <h2 class="font-semibold mb-1">Pricing</h2>
+          <p class="text-sm text-gray-400 mb-4">Real Stripe Payment Link (live mode).</p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl border border-gray-700 bg-black/30">
+              <div class="text-xs text-gray-500">FREE</div>
+              <div class="text-2xl font-bold mt-1">$0</div>
+              <ul class="text-sm text-gray-400 mt-3 space-y-1"><li>✓ Live markets</li><li>✓ 3 drafts / month</li></ul>
+            </div>
+            <div class="p-4 rounded-xl border border-emerald-500/40 bg-emerald-500/5">
+              <div class="text-xs text-emerald-400">PRO</div>
+              <div class="text-2xl font-bold mt-1">$29<span class="text-sm text-gray-400">/mo</span></div>
+              <ul class="text-sm text-gray-400 mt-3 space-y-1"><li>✓ 100+ drafts</li><li>✓ Export</li><li>✓ Priority</li></ul>
+              <a id="buy-pro" href="https://buy.stripe.com/5kQ3cv65Ebds4YW3j09IQ04" target="_blank" rel="noopener"
+                class="mt-4 inline-block w-full text-center py-2.5 rounded-lg font-bold text-sm bg-emerald-400 text-black">Buy Pro</a>
+            </div>
           </div>
         </div>
         <div id="sec-settings" class="hidden bg-gray-900 border border-gray-800 rounded-xl p-5">
           <h2 class="font-semibold mb-1">Настройки</h2>
-          <p class="text-sm text-gray-400 mb-4">Creator Mode = пожизненно бесплатно. Монетизацию можно полностью отключить.</p>
-          <div class="flex items-center justify-between py-3 border-b border-gray-800">
-            <div><div class="text-sm font-semibold">Creator Mode</div><div class="text-[11px] text-gray-500">Пожизненно бесплатно</div></div>
-            <button id="tog-creator" class="toggle on" onclick="toggleCreator()"></button>
-          </div>
-          <div class="flex items-center justify-between py-3">
-            <div><div class="text-sm font-semibold">Монетизация</div><div class="text-[11px] text-gray-500" id="mon-label">Отключена — все платежи скрыты</div></div>
-            <button id="tog-mon" class="toggle" onclick="toggleMon()"></button>
-          </div>
-          <div id="mon-msg" class="mt-4 p-3 rounded-lg text-xs bg-emerald-500/10 border border-emerald-500/25 text-emerald-400">Все тарифы скрыты. Приложение бесплатное для владельца.</div>
-          <div id="earn-panel" class="hidden mt-4 p-4 border border-violet-500/30 rounded-xl bg-violet-500/5">
-            <div class="font-semibold text-sm text-violet-300 mb-2">Режим заработка (для пользователей)</div>
-            <p class="text-xs text-gray-400 mb-3">Когда монетизация включена — клиенты видят тарифы. Ты как Creator остаёшься бесплатно.</p>
-            <div class="grid grid-cols-3 gap-2 text-center text-xs">
-              <div class="p-2 bg-black/30 rounded-lg"><div class="font-bold text-emerald-400">$99</div><div class="text-gray-500">Starter</div></div>
-              <div class="p-2 bg-black/30 rounded-lg"><div class="font-bold text-cyan-400">$299</div><div class="text-gray-500">Pro</div></div>
-              <div class="p-2 bg-black/30 rounded-lg"><div class="font-bold text-violet-400">$999</div><div class="text-gray-500">Lifetime</div></div>
-            </div>
-            <p class="text-[10px] text-gray-500 mt-2">Подключи Stripe Live keys для реальных платежей.</p>
+          <p class="text-sm text-gray-400 mb-4">Webhook: /api/stripe-webhook · Health: /api/health</p>
+          <div class="text-xs text-gray-500 mono space-y-1">
+            <div>Product: prod_VJrGQKrVrorNLf</div>
+            <div>Webhook: we_1UJDZBGWUjgSlWSu1ewKLLyb</div>
+            <div>Owner: Dmitry Koval</div>
           </div>
         </div>
       </div>
     </div>
   </div>
   <script>
-    let monetization = false, creator = true, wallet = false;
-    const titles = { terminal: 'Терминал', messenger: 'Мессенджер', wallet: 'Кошельки', site: 'Site Builder', privacy: 'Приватность', settings: 'Настройки' };
-    const allowed = ['help','status','wallet','monetization','site','privacy'];
+    const STRIPE_PRO = 'https://buy.stripe.com/5kQ3cv65Ebds4YW3j09IQ04';
+    const PRODUCTS = ['BTC-USD','ETH-USD','SOL-USD','TON-USD'];
+    const titles = { terminal: 'Терминал', markets: 'Markets', site: 'Studio', pricing: 'Pricing', settings: 'Настройки' };
+    const allowed = ['help','status','markets','buy','pro'];
+
+    function isPro(){ return localStorage.getItem('xkc_pro') === '1'; }
+    function quotaKey(){ const d=new Date(); return 'xkc_q_'+d.getUTCFullYear()+'-'+(d.getUTCMonth()+1); }
+    function getQuota(){ if(isPro()) return 999; return Math.max(0, 3 - Number(localStorage.getItem(quotaKey())||'0')); }
+    function useQuota(){ if(isPro()) return; const u=Number(localStorage.getItem(quotaKey())||'0'); localStorage.setItem(quotaKey(), String(u+1)); document.getElementById('quota').textContent = String(getQuota()); }
+    function refreshProBadge(){
+      const b = document.getElementById('pro-badge');
+      if(isPro()){ b.textContent='Pro'; b.className='text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-semibold'; }
+      else { b.textContent='Free'; b.className='text-[11px] px-2 py-0.5 rounded-full bg-gray-700 text-gray-300 border border-gray-600 font-semibold'; }
+      document.getElementById('quota').textContent = String(getQuota());
+    }
+    (function checkPaid(){
+      try {
+        const q = new URLSearchParams(location.search);
+        if(q.get('paid')==='pro'){ localStorage.setItem('xkc_pro','1'); history.replaceState({},'',location.pathname); }
+      } catch(e){}
+      refreshProBadge();
+    })();
+
     function show(id) {
       document.querySelectorAll('[id^=sec-]').forEach(el => el.classList.add('hidden'));
       document.getElementById('sec-' + id).classList.remove('hidden');
       document.getElementById('section-title').textContent = titles[id];
       document.querySelectorAll('.nav-btn').forEach(b => { b.className = 'nav-btn flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-gray-400 hover:bg-white/5 text-left'; });
       document.getElementById('nav-' + id).className = 'nav-btn flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-cyan-400 bg-cyan-500/10 text-left';
+      if(id==='markets') refreshMarkets();
     }
     function log(type, text) {
       const el = document.getElementById('term-out');
@@ -132,43 +142,45 @@
       const raw = input.value.trim(); if (!raw) return; input.value = '';
       log('cmd', '> ' + raw);
       const name = raw.toLowerCase().split(/\s+/)[0];
-      if (!allowed.includes(name)) { log('warn', 'Команда не разрешена: ' + allowed.join(', ')); return; }
-      if (name === 'help') log('text', 'help | status | wallet | monetization | site | privacy');
-      else if (name === 'status') { log('ok', 'API: local mock · healthy'); log('ok', 'Creator: ' + (creator?'ON':'OFF')); log('ok', 'Monetization: ' + (monetization?'ON':'OFF')); }
-      else if (name === 'wallet') log('text', wallet ? 'Кошелёк подключён' : 'Кошелёк не подключён');
-      else if (name === 'monetization') log(monetization?'warn':'ok', monetization ? 'Monetization ENABLED — тарифы видны клиентам' : 'Creator Mode — monetization disabled');
-      else if (name === 'site') log('text', 'Site Builder → раздел слева');
-      else if (name === 'privacy') log('ok', 'Confidential + Rings ready');
+      if (!allowed.includes(name)) { log('warn', 'Allowed: ' + allowed.join(', ')); return; }
+      if (name === 'help') log('text', 'help | status | markets | buy | pro');
+      else if (name === 'status') { log('ok', 'Markets: Coinbase live'); log('ok', 'Pro: ' + (isPro()?'ON':'OFF')); log('ok', 'Webhook: /api/stripe-webhook'); }
+      else if (name === 'markets') { show('markets'); log('ok', 'Markets opened'); }
+      else if (name === 'buy' || name === 'pro') { window.open(STRIPE_PRO,'_blank','noopener'); log('ok', 'Stripe Pro opened'); }
     }
-    function connectWallet() { wallet = true; document.getElementById('wallet-box').innerHTML = '<div class="text-emerald-400 text-sm font-semibold">✓ Кошелёк подключён · 0x7a3f…9c2e</div>'; }
     function createDraft() {
-      const p = document.getElementById('site-prompt').value.trim(); if (!p) return;
+      if(getQuota()<=0){ log('warn','Quota 0 — buy Pro'); show('pricing'); return; }
+      const p = document.getElementById('site-prompt').value.trim() || '(empty brief)';
       const box = document.getElementById('draft-box'); box.classList.remove('hidden');
-      box.innerHTML = '<div class="text-cyan-400 text-[11px] mb-1">draft-' + Date.now().toString(36) + ' · draft</div><b>Черновик</b><p class="text-gray-400 text-xs mt-1">Hero · Features · CTA</p><p class="text-amber-400 text-[11px] mt-2">Publish отсутствует.</p>';
+      box.textContent = '# Draft (proposal-only)\nGenerated: ' + new Date().toISOString() + '\n\n## Goal\n' + p + '\n\n## Structure\n1. Hero\n2. Proof\n3. CTA\n\nSTATUS: draft · externalExecution=false';
+      useQuota();
     }
-    function toggleCreator() { creator = !creator; document.getElementById('tog-creator').classList.toggle('on', creator); }
-    function toggleMon() {
-      monetization = !monetization;
-      document.getElementById('tog-mon').classList.toggle('on', monetization);
-      const badge = document.getElementById('mon-badge'), label = document.getElementById('mon-label'), msg = document.getElementById('mon-msg'), earn = document.getElementById('earn-panel');
-      if (monetization) {
-        badge.textContent = 'Monetization ON'; badge.className = 'text-[11px] px-2 py-0.5 rounded-full bg-red-500/15 text-red-400 border border-red-500/30 font-semibold';
-        label.textContent = 'Включена — клиенты видят тарифы';
-        msg.className = 'mt-4 p-3 rounded-lg text-xs bg-violet-500/10 border border-violet-500/25 text-violet-300';
-        msg.textContent = 'Монетизация для клиентов ВКЛ. Ты как Creator — бесплатно.';
-        earn.classList.remove('hidden');
-      } else {
-        badge.textContent = 'Monetization OFF'; badge.className = 'text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-semibold';
-        label.textContent = 'Отключена — платежи скрыты';
-        msg.className = 'mt-4 p-3 rounded-lg text-xs bg-emerald-500/10 border border-emerald-500/25 text-emerald-400';
-        msg.textContent = 'Все тарифы скрыты. Приложение бесплатное.';
-        earn.classList.add('hidden');
+    async function refreshMarkets(){
+      const root = document.getElementById('market-cards');
+      root.innerHTML = '<div class="text-gray-500 text-sm">Loading…</div>';
+      try {
+        const rows = await Promise.all(PRODUCTS.map(async p => {
+          const r = await fetch('https://api.exchange.coinbase.com/products/'+p+'/ticker');
+          if(!r.ok) throw new Error(p);
+          const j = await r.json();
+          return { p, price: Number(j.price), bid: Number(j.bid), ask: Number(j.ask) };
+        }));
+        root.innerHTML = '';
+        for(const t of rows){
+          const el = document.createElement('div');
+          el.className = 'p-3 rounded-xl bg-black/40 border border-gray-800';
+          el.innerHTML = '<div class="text-[10px] text-gray-500 mono">'+t.p+'</div><div class="text-lg font-semibold mono mt-1">'+t.price.toLocaleString('en-US',{maximumFractionDigits:4})+'</div><div class="text-[10px] text-gray-500 mt-1">bid '+t.bid.toLocaleString('en-US',{maximumFractionDigits:2})+'</div>';
+          root.appendChild(el);
+        }
+        document.getElementById('market-ts').textContent = 'fetched ' + new Date().toISOString();
+      } catch(e) {
+        root.innerHTML = '<div class="text-amber-400 text-sm">Market feed error</div>';
       }
-      log('ok', 'Monetization → ' + (monetization ? 'ENABLED (earn mode)' : 'DISABLED'));
     }
-    log('ok', 'Ω XANKONGCOCAKING OS — Creator Edition v1.0 LIVE');
-    log('ok', 'Creator Mode: ON · Monetization: OFF');
-    log('text', 'Введите help. Для заработка: Настройки → включи Монетизацию.');
+    log('ok', 'Ω XANKONG Control v2 LIVE');
+    log('ok', 'Stripe Pro wired · Coinbase markets');
+    log('text', 'help · markets · buy');
+    setInterval(function(){ if(!document.getElementById('sec-markets').classList.contains('hidden')) refreshMarkets(); }, 15000);
   </script>
 </body>
 </html>
